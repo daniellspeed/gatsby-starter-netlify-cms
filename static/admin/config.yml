@@ -12,6 +12,41 @@ media_folder: static/img
 public_folder: /img
 
 collections: 
+  - name: members
+    label: Members
+    extension: "json"
+    folder: src/data/members
+    editor:
+     preview: false
+    create: true
+    fields:
+      - { name: title, label: User}
+      - name: "badges" 
+        label: "Badges"
+        widget: relation
+        collection: badges
+        searchFields: ["title"]
+        displayFields: ["title", "description"]
+        valueField: ""
+        multiple: true
+        required: false
+  - name: badges
+    label: Badges
+    folder: src/data/badges
+    create: true
+    extension: "json"
+    media_folder: 'static/images/badges'
+    public_folder: '/images/badges'
+    editor:
+     preview: false
+    fields:
+      - { name: title, label: Name of the badge}
+      - name: badge
+        label: badge
+        widget: object
+        fields:
+          - { name: description, label: Description of the badge, widget: string }
+          - { name: image, label: Image of the badge, widget: image }
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
