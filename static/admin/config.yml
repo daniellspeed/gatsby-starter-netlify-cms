@@ -11,14 +11,7 @@ backend:
 media_folder: static/img
 public_folder: /img
 
-collections:
-  - label: "Post Author"
-    name: "author"
-    widget: "relation"
-    collection: "authors"
-    search_fields: ["name.first", "twitterHandle"]
-    value_field: "name.first"
-    display_fields: ["twitterHandle", "followerCount"] 
+collections: 
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
